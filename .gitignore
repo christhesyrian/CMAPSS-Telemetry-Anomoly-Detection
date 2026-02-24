@@ -45,8 +45,6 @@ artifacts/*
 reports/figures/*
 reports/tables/*
 # Keep metrics if small
-# If you want to ignore all reports instead, use:
-# reports/*
 
 # =========================
 # Logs
