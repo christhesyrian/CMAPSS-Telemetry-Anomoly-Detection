@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cmapps-telemetry-anomaly-detection"
+version = "0.1.0"
+description = "CMAPSS telemetry anomaly detection end-to-end pipeline (Kaggle ingestion, feature engineering, training, scoring)"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "pandas",
+  "scikit-learn",
+  "pyyaml",
+  "kaggle",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+cmapps-tad = "cmapps_telemetry_anomaly_detection.cli:main"

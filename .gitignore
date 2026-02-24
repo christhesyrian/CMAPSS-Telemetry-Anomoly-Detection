@@ -1,0 +1,91 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dylib
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# =========================
+# Data (DO NOT COMMIT)
+# =========================
+data/raw/*
+data/processed/*
+data/features/*
+
+# Keep folder structure
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/features/.gitkeep
+
+# =========================
+# Artifacts (trained outputs)
+# =========================
+artifacts/*
+!artifacts/.gitkeep
+
+# =========================
+# Reports (optional to keep metrics only)
+# =========================
+reports/figures/*
+reports/tables/*
+# Keep metrics if small
+# If you want to ignore all reports instead, use:
+# reports/*
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# VS Code / IDE
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# macOS
+# =========================
+.DS_Store
+
+# =========================
+# Kaggle credentials
+# =========================
+kaggle.json
+**/kaggle.json
+
+# =========================
+# Testing artifacts
+# =========================
+.coverage
+htmlcov/
+.pytest_cache/
+
+# =========================
+# Misc
+# =========================
+*.tmp
+*.swp
+*.bak
