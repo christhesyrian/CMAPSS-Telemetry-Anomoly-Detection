@@ -1,3 +1,13 @@
 dataset:
   slug: "palbha/cmapss-jet-engine-simulated-data"
   raw_path: "data/raw"
+
+dataset:
+  slug: "palbha/cmapss-jet-engine-simulated-data"
+  raw_path: "data/raw"
+  processed_path: "data/processed"
+  subset: "FD001"
+  anomaly_threshold: 30
+
+artifacts:
+  scaler_path: "artifacts/scalers/scaler_FD001.joblib"
