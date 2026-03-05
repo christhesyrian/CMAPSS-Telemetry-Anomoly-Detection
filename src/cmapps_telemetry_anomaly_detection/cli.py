@@ -2,6 +2,7 @@ import argparse
 from cmapps_telemetry_anomaly_detection.data_ingestion.kaggle_data_import import download_dataset
 from cmapps_telemetry_anomaly_detection.data_preprocessing.data_preprocess import run_preprocessing
 from cmapps_telemetry_anomaly_detection.feature_extraction.feature_extraction import run_feature_extraction
+from cmapps_telemetry_anomaly_detection.ml_models.unsupervised.isolation_forest import run_isolation_forest
 
 
 def main():
@@ -19,7 +20,8 @@ def main():
     )
 
     # Add other subcommands
-    sub.add_parser("train", help="Train anomaly model(s)")
+    train_parser = sub.add_parser("train", help="Train a model")
+    train_parser.add_argument("--model", required=True, choices=["isolation_forest"],help="Which model to train")
     sub.add_parser("score", help="Score anomalies")
     sub.add_parser("preprocess", help="Preprocess raw CMAPSS data")
     sub.add_parser("features", help="Extract features from processed data")
@@ -31,7 +33,8 @@ def main():
     if args.cmd == "download":
         download_dataset(force=args.force)  # pass force flag
     elif args.cmd == "train":
-        print("TODO: train anomaly model")
+        if args.model == "isolation_forest":
+            run_isolation_forest()
     elif args.cmd == "score":
         print("TODO: score anomalies")
     elif args.cmd is None:
