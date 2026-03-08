@@ -18,6 +18,9 @@ models:
   isolation_forest:
     n_estimators: 100
     contamination: 0.05
+  pca_reconstruction:
+    n_components: null
+    percentile: 95.0
 
 reports:
   metrics_path: "reports/metrics"
