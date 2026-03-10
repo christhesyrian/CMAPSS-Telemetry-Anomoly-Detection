@@ -2,24 +2,6 @@
 pca_reconstruction.py
 
 PCA Reconstruction anomaly detection model for CMAPSS FD001.
-
-How it works (fundamentally different from Isolation Forest):
-    1. Learn a compressed representation of HEALTHY sensor data using PCA
-    2. At scoring time, project each sample into the PCA subspace and back
-    3. Healthy data reconstructs well (low error)
-    4. Anomalous data cannot be reconstructed well (high error)
-    5. Reconstruction error IS the anomaly score
-
-Why this complements Isolation Forest:
-    - Isolation Forest: finds outliers by how hard they are to isolate (tree-based)
-    - PCA Reconstruction: finds outliers by how poorly they fit the healthy manifold
-    - They catch different types of anomalies -> ensemble is more robust
-
-Pipeline:
-    data/features/train_FD001.parquet  ->  train PCA
-                                       ->  artifacts/models/pca_reconstruction_FD001.joblib
-                                       ->  reports/metrics/pca_reconstruction_FD001.json
-                                       ->  reports/tables/pca_reconstruction_FD001_scores.csv
 """
 
 import json
