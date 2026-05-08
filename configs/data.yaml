@@ -21,6 +21,9 @@ models:
   pca_reconstruction:
     n_components: 15
     percentile: 95.0
+  kmeans:
+    n_clusters: 10
+    threshold_percentile: 95.0
 
 reports:
   metrics_path: "reports/metrics"

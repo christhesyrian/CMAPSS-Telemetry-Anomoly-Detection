@@ -4,7 +4,7 @@ from cmapps_telemetry_anomaly_detection.data_preprocessing.data_preprocess impor
 from cmapps_telemetry_anomaly_detection.feature_extraction.feature_extraction import run_feature_extraction
 from cmapps_telemetry_anomaly_detection.ml_models.unsupervised.isolation_forest import run_isolation_forest
 from cmapps_telemetry_anomaly_detection.ml_models.unsupervised.pca_reconstruction import run_pca_reconstruction
-
+from cmapps_telemetry_anomaly_detection.ml_models.unsupervised.kmeans import run_kmeans
 
 def main():
     # Create top-level parser
@@ -22,7 +22,7 @@ def main():
 
     # Add other subcommands
     train_parser = sub.add_parser("train", help="Train a model")
-    train_parser.add_argument("--model", required=True, choices=["isolation_forest", "pca_reconstruction"],help="Which model to train")
+    train_parser.add_argument("--model", required=True, choices=["isolation_forest", "pca_reconstruction","kmeans"],help="Which model to train")
     sub.add_parser("score", help="Score anomalies")
     sub.add_parser("preprocess", help="Preprocess raw CMAPSS data")
     sub.add_parser("features", help="Extract features from processed data")
@@ -38,6 +38,8 @@ def main():
             run_isolation_forest()
         elif args.model == "pca_reconstruction":
             run_pca_reconstruction()
+        elif args.model == "kmeans":
+            run_kmeans()
     elif args.cmd == "score":
         print("TODO: score anomalies")
     elif args.cmd is None:
